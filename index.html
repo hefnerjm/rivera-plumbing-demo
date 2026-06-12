@@ -179,13 +179,24 @@
       <div class="contact-item"><strong>Email:</strong> marco@riveraplumbing.com</div>
       <div class="contact-item"><strong>Hours:</strong> Mon–Sat 7am–7pm · Emergency calls 24/7</div>
     </div>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" />
-      <input type="text" placeholder="Phone Number" />
-      <input type="email" placeholder="Email Address" />
-      <textarea placeholder="What do you need help with?"></textarea>
-      <button type="button">Send My Request</button>
+    <form class="contact-form" id="demoForm">
+      <input type="text" placeholder="Your Name" required />
+      <input type="text" placeholder="Phone Number" required />
+      <input type="email" placeholder="Email Address" required />
+      <textarea placeholder="What do you need help with?" required></textarea>
+      <button type="submit">Send My Request</button>
+      <div id="formSuccess" style="display:none; background:#e8f5e9; border:1px solid #4caf50; color:#2e7d32; padding:1rem; border-radius:3px; text-align:center; font-size:0.95rem;">
+        ✅ <strong>Request received!</strong> We'll get back to you within a few hours — usually faster.
+      </div>
     </form>
+    <script>
+      document.getElementById('demoForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('formSuccess').style.display = 'block';
+        this.querySelector('button').textContent = 'Sent ✓';
+        this.querySelector('button').style.background = '#2e7d32';
+      });
+    </script>
   </div>
 </section>
 
